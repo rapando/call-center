@@ -1,0 +1,28 @@
+version: "3"
+
+services: 
+  web_1:
+    build: .
+    expose: 
+      - 3000
+    
+
+  web_2:
+    build: .
+    expose: 
+      - 3000
+    
+
+  web_3:
+    build: .
+    expose: 
+      - 3000
+
+  nginx:
+    image: nginx
+    volumes: 
+      - ./nginx.conf:/etc/nginx/conf.d/app.conf
+    ports:
+      - "3000:3000"
+    
+  
